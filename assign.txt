@@ -1,1 +1,404 @@
-?????
+1.objects and behaviors
+
+	Traveler:
+		Data: name, id, phone, friend
+		Behaviors: payForRental, rentTheCar, driveTheCar, fillTheGas, eat, BuyTicket, getIntoPark, bookTheHotel, chenkInTheHotel
+		
+	CarRental:
+		Data: car[] cars, BankAccount
+		Behaviors: rentConfirmation
+		
+	Car:
+		Data: name, licenseNumber, price, expiry
+		Behavior:
+		
+	GasStation:
+		Data: gas[] gases, BankAccount
+		Behaviors: charge
+		
+	Gas:
+		Data: number, name, volume, price
+		Behavior:
+		
+	Restaurant: 
+		Data: dish[] dishes, BankAccount
+		Behaviors: provideTheFood, charge
+		
+	Dish:
+		Data: name, size, price
+		Behavior:
+		
+	Park:
+		Data: ticket, BankAccount
+		Behaviors: charge, allowToEnter
+		
+	Ticket:
+		Data: number, date, price, 
+		
+	Hotel:
+		Data: hotel[] hotels, name, price
+		Behavior: charge
+		
+	CreditCard:
+		Data: number, name, company, expiry, pin 
+		Behavior:
+		
+	CreditCardCompany:
+		Behavior: authorizeTransaction
+		
+Sequence of invoking behaviors on objects:
+
+Rent a car:
+	
+	Traveler Alice;
+	CarRental ReachNow;
+	Car car1;
+	CreditCard card;
+	CreditCardCompany chase;
+	RentalConfirmation response;
+	
+	If ReachNow.isOpen
+		Alice.searchForAcar -> car
+		carNumber = 1;
+		Loop
+			If alice.findNoCar
+				Break
+			End 
+			Alice.findDesirableCar -> name, price, carNumber
+			If car.isAvailable 
+				break
+			Else 
+				carNumber = carNumber + 1
+			End
+		End 
+		Alice.payForRental -> a1, creditCard, ReachNow: rentConfirmation
+		Response = rentConfirmation
+		
+	Else
+		Alice.rentAfterAWhileBack
+		
+Fill the gas:
+
+	gasStation gasFill,
+	
+	If gasStation.isAvailable
+		Alice.searchForsuitableGas ->name, type
+		Gas = gas1
+		Alice.pay -> gas1, creditCard, adress, gasStation: transactionConfirmation
+		Response = transcationConfirmation
+		
+	Else
+		Alice.findNextGasStation
+
+Eat lunch at restaurant:
+
+	Restaurant pandaExpress,
+	
+	Alice.searchForDishes -> name, size, price -> lunch1
+	Lunch = lunch1
+	If lunch1.isAvailable
+		Alice.order -> lunch1, size, price
+		Alice.pay -> lunch1, creditCard, adress, pandaExpress: transactionConfirmation
+		Response = transactionConfirmation
+	
+	Else 
+		Alice.findNextOne
+		
+Buy the ticket and get into the park
+
+	Alice.countForNumber -> total
+	Alice.pay -> creditCard, adress, park: transactionConfirmation
+	Park.giveTheTickets
+	Alice.enterIntoThePark
+	
+Book a hotel or check in the hotel
+
+
+If internet.isAvailable
+
+	Alice.searchInInternet -> internet, question : collection of hotels
+	
+	If alice.findDesirableHotels & hotel.isAvailable
+	
+		Alice.bookHotel -> hotel: receiveOrder
+		Alice.checkIn -> hotel.provideSuit
+	
+	Else 
+		Alice.findNextOne
+
+Else 
+	Alice.browseInternetAfterAWhileBack
+	
+	
+	
+
+
+
+
+
+2.Organise a career fair (if you are the organiser)
+
+Things:
+	
+	Organiser:
+		Data: name, phone
+		Behaviors: assignTasks, contactWithCompanies, inviteCompany, addItIntoTheList
+	
+	Worker:
+		Data: name, phone
+		Behaviors: publicInformation, achieveTasks, 
+	
+	jobHunter:
+		Data: name, phone
+		Behaviors: join, joinWrittenExamination, joinInterview
+	
+	Company:
+		Data: name, size, type
+		Behaviors: respondToJoinCareerFair
+
+	School:
+		Data: name, 
+		Behaviors: arrangePlace
+	
+prepareForTheCareerFair
+
+	Organiser A,
+	Worker B,
+	Worker C,
+
+	A.contactWithCompanies ->name, type: collection of companies
+	companyNumber = 1;
+	Loop
+		
+		If company.respondToJoin
+			
+			Organiser.addItIntoTheList
+			
+		Else
+			companyNumber = companyNumber +1
+			Organiser.contactNextOne
+
+	End 
+	
+		Organiser.assignTasks -> worker.receiveTasks
+		Worker.prepareTheMaterials
+		
+		If material.isAvailable
+			
+			Organiser.applyForPlace
+			Organiser.applyForFacilities
+				
+				If place.isAvailable
+					School.arrangePlace
+					School.arrangeFacilities
+		                 worker.decorateThePlace
+					
+				Else
+					Worker.waitForArrangement
+					
+		Else
+			Worker.waitForMaterial
+	
+		Worker.notifyTheCompanies -> time, place
+		Worker.publicInformation
+		
+		If company.isAvailable
+			jobHunter.joinWrittenExamination
+				
+				If jobHunter.passTheExamination
+					jobHunter.joinInterview
+					If jobHunter.passTheInterview & company.giveOffer
+						jobHunter.receiveOffer
+					Else
+						jobHunter.joinNextOne
+					
+				Else
+					jonHunter.joinNextOne
+		
+		Else
+			jobHunter.waitForJoin
+		
+3.Order Pizza from Pizza Hut
+
+Things:
+
+	Consumer:
+	Data: name, adress, phone
+	Behaviors: seeMenu, order, pay, eat
+	
+	Restaurant:
+	Data: name, type
+	Behaviors: transactionConfirmation, giveMeal
+	
+	CreditCard:
+	Data: number, name, company, expiry, security code
+	Behavior:
+	
+	CreditCardCompany:
+	Behavior: authorizeTransation
+	
+OrderPizza:
+
+	Consumer alice,
+	Restaurant PizzaHut,
+	creditCard chase,
+	
+	If PizzaHut.isAvailable
+		Alice.seeMenu
+		Alice.order
+			If pizza.isAvailable
+				Alice.pay -> pizza, creditCard, adress, PizzaHut: transactionConfirmation
+				PizzaHut.makeFood
+				PizzaHut.giveFood
+				Alice.getFood
+				Alice.eat
+				
+			Else
+				Alice.orderAnotherOne
+	Else
+		Alice.comeAfterAWhileBack
+		
+4.Design a  code sharing platform
+
+Things:
+	
+	User:
+		Data: name, account number, gender
+		Behaviors: creatTheAccount, browse, save, copy, collect, follow, search, joinGroupDiscussion,
+		answerQuestions, askQuestions
+		
+	System:
+		Data: 
+		Behaviors: saveUserAccount, showHints, searchInDatabase, returnResult
+
+UserEnterIntoWebsite
+
+If website.isAvailable
+	System.ask -> Do you want to create an account ?
+	If user.answer = yes
+		System.showCreatTheAccount
+			User.creatAnAccount
+			System.saveTheAccount
+	Else
+		User.browse
+	end
+		User.writeCode
+		User.save
+		System.save
+		User.copy
+		System.copy
+		User.search
+		System.returnSearchPage
+		User.inputInformation
+			If information != null
+				System.search
+				If system.searchResult != null
+					Return System.searchResult
+				Else 
+					Return error
+			Else
+				Return please input valid information!
+		User.clickCollect
+		System.save
+		User.clickFollow
+		System.save
+		User.askQuestions
+		System.returnAskQuestionsPage
+		User.inputQuestions
+			If questions != null
+				System.returnSuccess
+				System.save
+			Else
+				Return please input  valid information!
+			End
+		User.answerQuestions
+			If answers != null
+				System.returnSuccess
+				System.save
+			Else
+				Return please input valid information!
+		User.clickClose
+			If user has logged in 
+				System.save
+				System.closeTheWebsite
+			Else
+				System.closeTheWebsite
+	
+Else
+	System.returnError
+	User.wait
+
+
+5.design a soft-drink/snacks vending machine
+
+Things:
+
+	Consumer:
+		Data: name, adress, phone
+		Behaviors: choose, pay, getCharge, takeTheProduct
+	Machine:
+		Data: products
+		Behaviors: transactionConfirmation, giveProducts
+	Product:
+		Data: name, type, price
+		Behavior:
+
+consumerBuyProducts
+	Consumer alice,
+	Product softdrink,
+	
+	If machine.isAvailable
+		Consumer.choose
+			If product.isAvailable
+				Consumer.pay
+					If charge != 0
+						Machine.returnCharge
+					Else
+						Machine.returnNoCharge
+				Machine.transactionConfirmation
+				Consumer.getProduct
+			Else
+				Return This product is sold out! Please choose another one!
+				Consumer.chooseNextOne
+	Else
+		Return This machine is out of action!
+		Consumer.wait
+		
+	
+
+	
+
+
+	
+	
+
+
+	
+	
+	
+
+
+
+
+
+
+	
+	
+
+
+	
+
+
+	
+	
+
+
+	
+	
+	
+	
+	
+
+	
+	
+
