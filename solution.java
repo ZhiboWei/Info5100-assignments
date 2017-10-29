@@ -1,3 +1,4 @@
+// extra credit 5
 package midterm;
 
 import java.util.ArrayList;
@@ -67,6 +68,9 @@ public class solution {
         }
     }
     public static void main(String[] args){
+        //result should be [[0,0],[1,0],[2,0],[3,0],[3,1],[4,1],[4,2],[4,3],[4,4]]
+        // your result is [[0,0],[1,0],[2,0],[3,0],[3,1],[4,1],[4,2]]
+
         int[][] maze={
                 {1,1,0,0,1},
                 {1,0,0,0,0},
