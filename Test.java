@@ -1,7 +1,7 @@
 package midterm;
 
 public class Test {
-    public static int[] reverseEvenIndices(int[] nums){
+    public static int[] reverseEvenIndices(int[] nums){ // score 6
 
         int p1=0;
         int p2;
@@ -25,7 +25,7 @@ public class Test {
         return nums;
     }
 
-    public static int arrangeCoins(int n){
+    public static int arrangeCoins(int n){// score 7
         int rows=1;
         int count=0;
         while(n>=rows){
@@ -38,7 +38,7 @@ public class Test {
 
     }
 
-    public int minMoves(int[] nums){
+    public int minMoves(int[] nums){ // score 7
         int min=nums[0];
         int sum=nums[0];
         for(int i=1;i<nums.length;i++){
@@ -50,7 +50,7 @@ public class Test {
         return sum-min*nums.length;
     }
 
-    public static int countNumberOfPossibleWays(int faces, int dices, int x){
+    public static int countNumberOfPossibleWays(int faces, int dices, int x){ // score 10
         if(x<1){
             return 0;
         }
