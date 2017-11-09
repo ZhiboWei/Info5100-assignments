@@ -1,6 +1,7 @@
+// lots of code duplication is found. The usage of inheritance is not clearly followed
 package com.company;
 
-class Tool {
+class Tool { // score 1
     private int strength;
     private char type;
 
@@ -23,7 +24,7 @@ class Tool {
 }
 
 class Rock extends Tool{
-    int strength;
+    int strength; // these are already defined in super class. No point in defining again.
     char type;
     @Override
     public void setStrength(int strength) {
@@ -31,7 +32,7 @@ class Rock extends Tool{
     }
 
     @Override
-    public void setType(char type) {
+    public void setType(char type) { // don't override unless you are changing the body signature
         this.type=type;
     }
 
@@ -42,8 +43,8 @@ class Rock extends Tool{
 
     @Override
     public boolean fight(Tool t) {
-        Rock rock = new Rock();
-        int temp;
+        Rock rock = new Rock(); // you are creating a new object here, which leads that you are comparing the strength with
+        int temp;               // another rock but not the current one
         temp=rock.strength;
         if(t.getType()=='s'){
             temp=temp*2;
