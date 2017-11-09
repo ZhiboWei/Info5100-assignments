@@ -1,3 +1,6 @@
+/* Good Work
+ * Score 9+ extra credit 2; Total score 10
+*/
 package com.company;
 
 public class assignment4 {
@@ -11,7 +14,7 @@ public class assignment4 {
 
     }
 
-    public static String licenseKeyFormatting(String S, int K) {
+    public static String licenseKeyFormatting(String S, int K) { // score 2
         char[] sArr = S.toCharArray();
         String result = "";
         StringBuffer sBuffer = new StringBuffer(result);
@@ -37,7 +40,7 @@ public class assignment4 {
         System.out.println(result);
         return result;
     }
-    public static String intToRoman(int num){
+    public static String intToRoman(int num){ // score 2
         String[] digit={"","I","II","III","IV","V","VI","VII","VIII","IX"};
         String[] ten={"","X","XX","XXX","XL","L","LX","LXX","LXXX","XC"};
         String[] hundred={"","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"};
@@ -47,7 +50,7 @@ public class assignment4 {
         System.out.println(str1);
         return str1;
     }
-    public static double findMedianSortedArrays(int[]nums1,int[]nums2){
+    public static double findMedianSortedArrays(int[]nums1,int[]nums2){ // extra credit 2
         int m=nums1.length;
         int n=nums2.length;
         double[] nums=new double[m+n];
