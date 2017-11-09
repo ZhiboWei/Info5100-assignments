@@ -1,6 +1,6 @@
 package com.company;
 
-public class IpAddress {
+public class IpAddress { // score 2
     String DottedDecimal;
     int firstOctet;
     int secondOctet;
@@ -21,7 +21,7 @@ public class IpAddress {
             System.out.println("Error!");
         } else {
             IpAddress ip = new IpAddress();
-            String a[] = DottedDecimal.split("\\.");
+            String a[] = DottedDecimal.split("\\."); // refactor this block to another method to cleaner code
             ip.firstOctet = Integer.parseInt(a[0]);
             ip.secondOctet = Integer.parseInt(a[1]);
             ip.thirdOctet = Integer.parseInt(a[2]);
