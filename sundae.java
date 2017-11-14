@@ -2,7 +2,7 @@ package assignment5;
 
 public class sundae extends icecream {
 
-    String toppingName;
+    String toppingName; // access should be private
     double toppingPrice;
 
     public sundae(String name, int price, String toppingName, int toppingPrice) {
