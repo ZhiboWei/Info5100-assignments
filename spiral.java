@@ -1,3 +1,6 @@
+/* Good Work
+ * score 7 + extra credit 2; total score 9
+ */
 package assignment5;
 
 import java.util.LinkedList;
