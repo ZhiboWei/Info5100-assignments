@@ -4,8 +4,10 @@ import java.text.DecimalFormat;
 import java.util.Vector;
 
 public class checkOut {
-
-    DecimalFormat df = new DecimalFormat("######0.00");
+    // clear method is missing
+    // output doesn't match the given format
+    // cost of oatmeal resins is displayed wrong
+    DecimalFormat df = new DecimalFormat("######0.00"); // this should not be defined in class level
 
     Vector<dessertItem> v = new Vector<dessertItem>();
 
