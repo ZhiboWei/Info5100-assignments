@@ -1,13 +1,17 @@
+/* Good Work
+ * score 17
+ * you didn't follow the api, the methods are not meaningful, no constructor where user can pass list of words. 
+ */
 package project;
 
 import java.util.Scanner;
 
 public class test {
     Scanner input = new Scanner(System.in);
-    String[] words = {"apple","orange","banana","coconut","blueberry"};
+    String[] words = {"apple","orange","banana","coconut","blueberry"}; // access should be private
     public test(){
         while(true){
-            int num = (int)(Math.random()*5);
+            int num = (int)(Math.random()*5); // this is hard coded, you should use words.length instead of 5
             String str = words[num];
             int n = Guess(str);
             System.out.println("The word is "+ str +".You missed "+n+"times.\n");
