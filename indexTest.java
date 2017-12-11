@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
-class MyIndexOutOfBoundException extends IndexOutOfBoundsException{
+class MyIndexOutOfBoundException extends IndexOutOfBoundsException{ // score 2
     int lowerBound;
     int upperBound;
     int index;
@@ -25,7 +25,7 @@ public class indexTest {
                 throw new MyIndexOutOfBoundException(0, arr.length-1, i);
         }
     //2.modify the parse() method
-    public static void parse(File file)throws IOException{
+    public static void parse(File file)throws IOException{ // score 1
         RandomAccessFile input = null;
         String line = null;
         try{
