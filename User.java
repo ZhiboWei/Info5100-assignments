@@ -1,3 +1,7 @@
+/* Good Work
+ * Score 9 + Extra credit 2; Total score 10
+ * Unit tests for ATM are missing
+ */
 package assignment6;
 
 import javax.jws.soap.SOAPBinding;
