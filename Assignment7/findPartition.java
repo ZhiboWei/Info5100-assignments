@@ -1,3 +1,6 @@
+/* GOod WOrk
+ * SCore 9.5 + extra credit 2; Total score 10
+ */
 package assignment7;
 
 public class findPartition {
