@@ -6,7 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.*;
 
-public class LyricAnalyzer {
+public class LyricAnalyzer { // score 4
     private HashMap<String,ArrayList<Integer>> map;
 
     public LyricAnalyzer(){
