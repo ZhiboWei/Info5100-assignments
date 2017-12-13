@@ -1,6 +1,6 @@
 package assignment7;
 
-public class MaxValue extends Thread{
+public class MaxValue extends Thread{ // score 2
     private int low;
     private int high;
     private int[] arr;
