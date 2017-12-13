@@ -1,6 +1,6 @@
 package assignment7;
 
-class ThreadList extends Thread {
+class ThreadList extends Thread { // score 2
     int num;
 
     public ThreadList(int num) {
