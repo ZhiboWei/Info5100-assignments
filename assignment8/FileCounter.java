@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class FileCounter {
+public class FileCounter { // score 3
     private int characterCount = 0;
     private int wordCount = 0;
     private int lineCount = 0;
