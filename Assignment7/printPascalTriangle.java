@@ -1,7 +1,7 @@
 package assignment7;
 
 public class printPascalTriangle {
-    public static void printTriangle(int n){
+    public static void printTriangle(int n){ // use long insted of int, for input 100 int overflows // score 1.5
         if(n==0){
             return;
         }
