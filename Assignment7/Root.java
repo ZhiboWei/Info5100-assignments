@@ -1,6 +1,6 @@
 package assignment7;
 
-class Device{
+class Device{ // score 2
     public void startup(){
         System.out.println("The device is starting.");
     }
