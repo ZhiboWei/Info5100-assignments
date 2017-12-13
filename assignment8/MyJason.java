@@ -1,3 +1,6 @@
+/* GOod work
+ * Total score 10
+ */
 package assignment8;
 
 import java.io.*;
