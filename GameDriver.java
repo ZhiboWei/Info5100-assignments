@@ -1,3 +1,7 @@
+/* Good WOrk
+ * Score 19.5
+ * you have not sorted the cards based on SUIT 
+ */
 package project2;
 
 import java.util.Random;
